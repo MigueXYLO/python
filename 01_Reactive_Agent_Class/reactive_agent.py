@@ -96,18 +96,20 @@ class ReactiveAgent:
         action=None
         older_iteration=9999999
 
-        if(perception.e is not None and not perception.e.has_wall):
-            older_iteration=perception.e.last_iteration
-            action=Action.EAST
-        if(perception.s is not None and not perception.s.has_wall and perception.s.last_iteration < older_iteration):
-            older_iteration=perception.s.last_iteration
-            action=Action.SOUTH
-        if(perception.w is not None and not perception.w.has_wall and perception.w.last_iteration < older_iteration):
-            older_iteration=perception.w.last_iteration
-            action=Action.WEST
+
         if(perception.n is not None and not perception.n.has_wall and perception.n.last_iteration < older_iteration):
             older_iteration=perception.n.last_iteration
             action=Action.NORTH
+        if(perception.s is not None and not perception.s.has_wall and perception.s.last_iteration < older_iteration):
+            older_iteration=perception.s.last_iteration
+            action=Action.SOUTH
+        if(perception.e is not None and not perception.e.has_wall):
+            older_iteration=perception.e.last_iteration
+            action=Action.EAST
+        if(perception.w is not None and not perception.w.has_wall and perception.w.last_iteration < older_iteration):
+            older_iteration=perception.w.last_iteration
+            action=Action.WEST
+        
         return action
         return None
 
@@ -119,14 +121,15 @@ class ReactiveAgent:
         # tiebreaker, when more than one adjacent cell is dirty or if there are
         # no dirty adjacent cells.
 
-        if(perception.e is not None and perception.e.dirty):
-            return Action.EAST
+        if(perception.n is not None and perception.n.dirty):
+            return Action.NORTH     
         if(perception.s is not None and perception.s.dirty):
             return Action.SOUTH
+        if(perception.e is not None and perception.e.dirty):
+            return Action.EAST
         if(perception.w is not None and perception.w.dirty):
             return Action.WEST
-        if(perception.n is not None and perception.n.dirty):
-            return Action.NORTH        
+           
         return self.decide_c(perception)
 
         return None
