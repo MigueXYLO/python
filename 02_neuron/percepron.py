@@ -6,14 +6,14 @@ class Perceptron:
         self.b=None
     
     def fit(self, xx:np.ndarray, yy:np.ndarray, learning_rate:float=0.1, seed: int=1) -> None:
-        #criar os pesos random
+        # Create random weights
         num_features=xx.shape[1]
         rng=np.random.default_rng(seed)
         self.w=rng.random(num_features)
         self.b=rng.random()
         num_samples = xx.shape[1]
-        #algoritmo
-
+        
+        # Training algorithm
         change = True
         while change:
             change=False
@@ -28,28 +28,6 @@ class Perceptron:
                     self.b+=update
             print("--------------------")        
 
-
-
-        #copilot
-        #for i in range(num_samples):
-        #    # Retrieve the input sample and corresponding label
-        #    x = xx[i]
-        #    y = yy[i]
-        #    
-        #    # Make a prediction using the perceptron's predict function
-        #    y_pred = self.predict(x)
-        #    
-        #    # Calculate the error by subtracting the predicted label from the actual label
-        #    error = y - y_pred
-        #    
-        #    # Update the weights and bias of the perceptron based on the error and learning rate
-        #    self.w += learning_rate * error * x
-        #    self.b += learning_rate * error
-            
-
-
     def predict(self, x: np.ndarray) -> int:
         weighted_sum=np.dot(x,self.w)+self.b
         return 1 if weighted_sum > 0 else -1
-    
-    
