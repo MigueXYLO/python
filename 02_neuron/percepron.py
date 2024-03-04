@@ -14,8 +14,8 @@ class Perceptron:
         Trains the Perceptron model on the given input data.
 
         Args:
-            xx (np.ndarray): The input features of shape (num_samples, num_features).
-            yy (np.ndarray): The target labels of shape (num_samples,).
+            xx (np.ndarray): The input features of shape (num_features).
+            yy (np.ndarray): The target labels of shape ().
             learning_rate (float, optional): The learning rate for updating the weights. Defaults to 0.1.
             seed (int, optional): The seed value for random number generation. Defaults to 1.
         """
@@ -24,7 +24,6 @@ class Perceptron:
         rng = np.random.default_rng(seed)
         self.w = rng.random(num_features)
         self.b = rng.random()
-        num_samples = xx.shape[1]
         
         # Training algorithm
         change = True
