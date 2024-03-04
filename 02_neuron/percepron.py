@@ -51,5 +51,5 @@ class Perceptron:
             int: The predicted class label (-1 or 1).
         """
         weighted_sum = np.dot(x, self.w) + self.b
-        return 1 if weighted_sum > 0 else -1
+        return 1 if weighted_sum > 0 else 0
     

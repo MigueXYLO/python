@@ -3,7 +3,7 @@ import numpy as np  # Importing the numpy library and aliasing it as np
 
 if __name__ == '__main__':
     # Defining the training data as a numpy array
-    training_data = np.array([[-1, -1], [-1, 1], [1, -1], [1, 1]])
+    training_data = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
     
     # Defining the corresponding training labels as a numpy array
     #and
@@ -11,7 +11,7 @@ if __name__ == '__main__':
     #or
     #training_label = np.array([-1, 1, 1, 1])
     #xor
-    training_label = np.array([-1, 1, 1, -1])
+    training_label = np.array([0, 1, 1, 0])
 
     # Creating an instance of the Perceptron class
     perceptron = Perceptron()
