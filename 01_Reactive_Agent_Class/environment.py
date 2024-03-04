@@ -20,7 +20,7 @@ class Environment(threading.Thread):
         self.iteration = None
         self.listeners = []
         self.thread_running = False
-        self.dirt_rate = 0.0001
+        self.dirt_rate = 0.0005
 
         self.grid = np.empty((rows, columns), dtype=Cell)
 
