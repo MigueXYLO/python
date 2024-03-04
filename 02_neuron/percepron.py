@@ -52,3 +52,4 @@ class Perceptron:
         """
         weighted_sum = np.dot(x, self.w) + self.b
         return 1 if weighted_sum > 0 else -1
+    

@@ -6,7 +6,12 @@ if __name__ == '__main__':
     training_data = np.array([[-1, -1], [-1, 1], [1, -1], [1, 1]])
     
     # Defining the corresponding training labels as a numpy array
-    training_label = np.array([-1, -1, -1, 1])
+    #and
+    #training_label = np.array([-1, -1, -1, 1])
+    #or
+    #training_label = np.array([-1, 1, 1, 1])
+    #xor
+    training_label = np.array([-1, 1, 1, -1])
 
     # Creating an instance of the Perceptron class
     perceptron = Perceptron()
